@@ -1,10 +1,7 @@
-import { useLocation } from "react-router";
-
-function Lazy() {
-  const locationState = useLocation().state;
+function Lazy({ count = 10 }: { count?: number }) {
   return (
     <div>
-      <p className="read-the-docs">Lazy loaded: {locationState?.count} </p>
+      <p className="read-the-docs">Lazy loaded: {10 / count} </p>
     </div>
   );
 }
