@@ -1,8 +1,8 @@
-import { useState, lazy } from "react";
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-const Lazy = lazy(() => import("./Lazy"));
+import { NavLink } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,7 +37,11 @@ function App() {
       </button>
       <br />
       <br />
-      {show && <Lazy />}
+      {show && (
+        <NavLink to="/lazy" state={{ count }}>
+          Go to /lazy
+        </NavLink>
+      )}
     </>
   );
 }
