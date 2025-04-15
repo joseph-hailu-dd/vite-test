@@ -6,7 +6,6 @@ import { NavLink } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [show, setShow] = useState(false);
 
   return (
     <>
@@ -32,16 +31,12 @@ function App() {
       </p>
       <br />
       <br />
-      <button onClick={() => setShow((prev) => !prev)}>
-        Show Lazy Content
-      </button>
       <br />
       <br />
-      {show && (
-        <NavLink to="/lazy" state={{ count }}>
-          Go to /lazy
-        </NavLink>
-      )}
+
+      <NavLink to="/lazy" state={{ count }}>
+        Go to /lazy
+      </NavLink>
     </>
   );
 }
