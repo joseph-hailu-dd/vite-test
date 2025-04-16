@@ -34,7 +34,7 @@ function App() {
       <br />
       <br />
       <NavLink to="/lazy" state={{ count }}>
-        Go to /lazy
+        Go to /lazy (now with service worker prompt?)
       </NavLink>
     </>
   );
