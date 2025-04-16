@@ -10,6 +10,25 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
+      includeAssets: ["favicon.ico", "vite.svg"],
+      manifest: {
+        name: "Vite + React + TS",
+        short_name: "MyApp",
+        description: "My Awesome Vite App",
+        theme_color: "#ffffff",
+        icons: [
+          {
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/svg",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/svg",
+          },
+        ],
+      },
     }),
   ],
 });
