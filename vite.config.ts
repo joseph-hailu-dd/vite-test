@@ -9,6 +9,7 @@ export default defineConfig({
     VitePWA({
       devOptions: {
         enabled: true,
+        type: "module",
       },
       includeAssets: ["favicon.ico", "vite.svg"],
       manifest: {
