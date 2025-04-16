@@ -33,6 +33,7 @@ function App() {
       <br />
       <br />
       <br />
+      <br />
       <NavLink to="/lazy" state={{ count }}>
         Go to /lazy (now with vite pwa service worker prompt?)
       </NavLink>

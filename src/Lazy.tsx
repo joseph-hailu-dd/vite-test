@@ -5,7 +5,6 @@ function Lazy({ count = 10 }: { count?: number }) {
       <br />
       <br />
       <br />
-      <br />
       <p className="read-the-docs">Date: {new Date().toISOString()} </p>
     </div>
   );
