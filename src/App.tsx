@@ -33,7 +33,6 @@ function App() {
       <br />
       <br />
       <br />
-
       <NavLink to="/lazy" state={{ count }}>
         Go to /lazy
       </NavLink>
