@@ -12,7 +12,7 @@ function ReloadPrompt() {
     updateServiceWorker,
   } = useRegisterSW({
     onRegisteredSW(swUrl, r) {
-      console.log({ reloadSW });
+      console.log({ reloadSW, buildDate });
       console.log(`Service Worker at: ${swUrl}`);
       // @ts-expect-error  just ignore
       if (reloadSW === "true") {
