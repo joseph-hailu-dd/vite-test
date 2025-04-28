@@ -13,7 +13,7 @@ function ReloadPrompt() {
   } = useRegisterSW({
     onRegisteredSW(swUrl, r) {
       console.log(`Service Worker at: ${swUrl}`);
-      // @ts-expect-error just ignore
+      // @ts-expect-error  just ignore
       if (reloadSW === "true") {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         r &&
