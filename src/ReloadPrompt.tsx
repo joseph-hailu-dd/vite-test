@@ -1,29 +1,30 @@
 import { useRegisterSW } from "virtual:pwa-register/react";
 import "./ReloadPrompt.css";
 
-function ReloadPrompt() {
-  // replaced dynamically
-  const buildDate = "__DATE__";
-  // replaced dyanmicaly
-  const reloadSW = "__RELOAD_SW__";
+const intervalMS = 1_000 * 20 * 1;
 
+function ReloadPrompt() {
   const {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
     onRegisteredSW(swUrl, r) {
-      console.log({ reloadSW, buildDate });
-      console.log(`Service Worker at: ${swUrl}`);
-      // @ts-expect-error  just ignore
-      if (reloadSW === "true") {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        r &&
-          setInterval(() => {
-            console.log("Checking for sw update");
-            r.update();
-          }, 20000 /* 20s for testing purposes */);
-      } else {
-        console.log("SW Registered: " + r);
+      if (r) {
+        setInterval(async () => {
+          if (r.installing || !navigator) return;
+
+          if ("connection" in navigator && !navigator.onLine) return;
+
+          const resp = await fetch(swUrl, {
+            cache: "no-store",
+            headers: {
+              cache: "no-store",
+              "cache-control": "no-cache",
+            },
+          });
+
+          if (resp?.status === 200) await r.update();
+        }, intervalMS);
       }
     },
     onRegisterError(error: unknown) {
@@ -57,7 +58,6 @@ function ReloadPrompt() {
           </button>
         </div>
       )}
-      <div className="ReloadPrompt-date">{buildDate}</div>
     </div>
   );
 }
