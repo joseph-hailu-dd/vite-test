@@ -14,7 +14,7 @@ function ReloadPrompt() {
           if (r.installing || !navigator) return;
 
           if ("connection" in navigator && !navigator.onLine) return;
-
+          console.log({ swUrl, r });
           const resp = await fetch(swUrl, {
             cache: "no-store",
             headers: {
